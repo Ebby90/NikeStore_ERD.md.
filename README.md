@@ -1,40 +1,51 @@
 # NikeStore_ERD.md
 
+# Nike Shoe Store Data Flowchart
+
 ```mermaid
-erDiagram
+flowchart TD
+    A[Customer] -->|Places Order| B[Sales Transaction]
+    B -->|Includes| C[Product]
+    C -->|Stock Checked| D[Inventory]
+    D -->|Stock Updated| B
+    B -->|Confirmation Sent To| A
 
-    CUSTOMERS ||--o{ SALES : places
-    PRODUCTS ||--o{ SALES : includes
-    PRODUCTS ||--|| INVENTORY : is_stocked_in
+    subgraph Product Details
+        C1[Model Name]
+        C2[Category]
+        C3[Price]
+        C4[Size]
+        C5[Color]
+    end
+    C --> C1
+    C --> C2
+    C --> C3
+    C --> C4
+    C --> C5
 
-    CUSTOMERS {
-        int customer_id PK
-        string first_name
-        string last_name
-        string email
-        string phone
-    }
+    subgraph Customer Details
+        A1[First Name]
+        A2[Last Name]
+        A3[Email]
+        A4[Phone]
+    end
+    A --> A1
+    A --> A2
+    A --> A3
+    A --> A4
 
-    PRODUCTS {
-        int product_id PK
-        string model_name
-        string category
-        decimal price
-        string size
-        string color
-    }
+    subgraph Sale Details
+        B1[Sale Date]
+        B2[Quantity]
+        B3[Total Price]
+    end
+    B --> B1
+    B --> B2
+    B --> B3
 
-    SALES {
-        int sale_id PK
-        int customer_id FK
-        int product_id FK
-        datetime sale_date
-        int quantity
-        decimal total_price
-    }
-
-    INVENTORY {
-        int product_id PK, FK
-        int quantity_in_stock
-        string location
-    }
+    subgraph Inventory Details
+        D1[Quantity in Stock]
+        D2[Location]
+    end
+    D --> D1
+    D --> D2
