@@ -1,15 +1,4 @@
-# NikeStore_ERD.md
-
 # Nike Shoe Store ERD
-
-# Nike Shoe Retail Store - ERD
-
-This Entity-Relationship Diagram (ERD) models the database for a Nike shoe retail store. The diagram illustrates the relationships and constraints between four key entities:
-
-- **Products**: Different models of Nike shoes sold in the store.
-- **Customers**: Individuals who purchase shoes from the store.
-- **Sales**: Transactions linking customers to the shoes they purchase.
-- **Inventory**: Tracks stock levels for each shoe model.
 
 ```mermaid
 erDiagram
