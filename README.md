@@ -1,10 +1,13 @@
 # NikeStore
 
+# Nike Shoe Store ERD
+
+```mermaid
 erDiagram
 
     CUSTOMERS ||--o{ SALES : places
     PRODUCTS ||--o{ SALES : includes
-    PRODUCTS ||--|| INVENTORY : stocked_in
+    PRODUCTS ||--|| INVENTORY : is_stocked_in
 
     CUSTOMERS {
         int customer_id PK
