@@ -2,41 +2,39 @@
 
 # Nike Shoe Store ERD
 
-```mermaid
 erDiagram
+  PRODUCT {
+    int product_id PK
+    string name
+    string category
+    string size
+    float price
+  }
 
-    CUSTOMERS ||--o{ SALES : places
-    PRODUCTS ||--o{ SALES : includes
-    PRODUCTS ||--|| INVENTORY : is_stocked_in
+  CUSTOMER {
+    int customer_id PK
+    string first_name
+    string last_name
+    string email
+    string phone
+  }
 
-    CUSTOMERS {
-        int customer_id PK
-        string first_name
-        string last_name
-        string email
-        string phone
-    }
+  SALE {
+    int sale_id PK
+    int product_id FK
+    int customer_id FK
+    date sale_date
+    int quantity
+    float total_price
+  }
 
-    PRODUCTS {
-        int product_id PK
-        string model_name
-        string category
-        decimal price
-        string size
-        string color
-    }
+  INVENTORY {
+    int inventory_id PK
+    int product_id FK
+    int quantity_in_stock
+    string location
+  }
 
-    SALES {
-        int sale_id PK
-        int customer_id FK
-        int product_id FK
-        datetime sale_date
-        int quantity
-        decimal total_price
-    }
-
-    INVENTORY {
-        int product_id PK, FK
-        int quantity_in_stock
-        string location
-    }
+  CUSTOMER ||--o{ SALE : places
+  PRODUCT ||--o{ SALE : includes
+  PRODUCT ||--|| INVENTORY : stored_in
