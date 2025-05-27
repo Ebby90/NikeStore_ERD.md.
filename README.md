@@ -27,8 +27,8 @@ erDiagram
 
     CUSTOMER {
         int customer_id PK
-        string first_name
-        string last_name
+        string FirstNme
+        string LastName
         string email
         string phone
     }
