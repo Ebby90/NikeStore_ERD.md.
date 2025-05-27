@@ -19,7 +19,7 @@ A product is represented in exactly one inventory record (||--||), assuming each
 erDiagram
     PRODUCT {
         int product_id PK
-        string Nme
+        string Name
         string Category
         string Size
         float Price
