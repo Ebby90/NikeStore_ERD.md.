@@ -19,34 +19,34 @@ A product is represented in exactly one inventory record (||--||), assuming each
 erDiagram
     PRODUCT {
         int product_id PK
-        string name
-        string category
-        string size
-        float price
+        string Nme
+        string Category
+        string Size
+        float Price
     }
 
     CUSTOMER {
         int customer_id PK
         string FirstNme
         string LastName
-        string email
-        string phone
+        string Email
+        string Phone
     }
 
     SALE {
-        int sale_id PK
-        date sale_date
-        int customer_id FK
-        int product_id FK
-        int quantity
-        float total_price
+        int SaleId PK
+        date SaleDate
+        int CustomerId FK
+        int ProductId FK
+        int Quantity
+        float Total_Price
     }
 
     INVENTORY {
-        int inventory_id PK
-        int product_id FK
-        int quantity_in_stock
-        string location
+        int InventoryId PK
+        int ProductId FK
+        int Quantity_In_Stock
+        string Location
     }
 
     CUSTOMER ||--o{ SALE : places
